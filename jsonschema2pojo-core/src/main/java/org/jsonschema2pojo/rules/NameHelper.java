@@ -49,14 +49,17 @@ public class NameHelper {
 
     public String capitalizeTrailingWords(String name) {
         char[] wordDelimiters = generationConfig.getPropertyWordDelimiters();
+       
 
         if (containsAny(name, wordDelimiters)) {
-            String capitalizedNodeName = WordUtils.capitalize(name, wordDelimiters);
+        	 String capitalizedNodeName = WordUtils. capitalizeFully(name, wordDelimiters);
             name = name.charAt(0) + capitalizedNodeName.substring(1);
 
             for (char c : wordDelimiters) {
                 name = remove(name, c);
             }
+        }else if (name.equals(name.toUpperCase())){
+        	name = WordUtils. capitalizeFully(name);
         }
 
         return name;

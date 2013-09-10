@@ -304,7 +304,7 @@ public class Jsonschema2PojoMojo extends AbstractMojo implements GenerationConfi
     @edu.umd.cs.findbugs.annotations.SuppressWarnings(value = {
             "NP_UNWRITTEN_FIELD", "UWF_UNWRITTEN_FIELD" }, justification = "Private fields set by Maven.")
     public void execute() throws MojoExecutionException {
-
+    	System.out.println("I AM HERE");
         try {
             getAnnotationStyle();
         } catch (IllegalArgumentException e) {
