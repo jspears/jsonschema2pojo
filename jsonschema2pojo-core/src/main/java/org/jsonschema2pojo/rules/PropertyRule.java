@@ -176,9 +176,8 @@ public class PropertyRule implements Rule<JDefinedClass, JDefinedClass> {
     }
 
     private String getPropertyName(String nodeName) {
-        nodeName = ruleFactory.getNameHelper().replaceIllegalCharacters(nodeName);
-        nodeName = ruleFactory.getNameHelper().normalizeName(nodeName);
-
+        nodeName = ruleFactory.getNameHelper().normalizePropertyName(nodeName);
+        
         if (isKeyword(nodeName)) {
             nodeName = "_" + nodeName;
         }

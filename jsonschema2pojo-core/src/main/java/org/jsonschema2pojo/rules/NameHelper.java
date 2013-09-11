@@ -36,7 +36,14 @@ public class NameHelper {
     public String replaceIllegalCharacters(String name) {
         return name.replaceAll(ILLEGAL_CHARACTER_REGEX, "_");
     }
-
+    public String normalizePropertyName(String name){
+    	name = normalizeName(replaceIllegalCharacters(name));
+    	if (Character.isUpperCase(name.charAt(0))){
+    		name = Character.toLowerCase(name.charAt(0))+name.substring(1);
+    	}
+    	
+    	return name;
+    }
     public String normalizeName(String name) {
         name = capitalizeTrailingWords(name);
 
